@@ -1,0 +1,35 @@
+    #include <iostream>
+    #include<map>
+    using namespace std;
+    int main()
+    {
+    	int size;
+    	cin >> size;
+    	int* arr = new int[size];
+    	int sum, numbers;
+    	cin >> sum;
+    	for (int x = 0; x < size; x++) {
+    		cin >> numbers;
+    		arr[x] = numbers;
+    	}
+    	map<int, int> m;
+     
+    	for (int i = 0; i < size; i++)
+    		m[arr[i]]++;
+     
+    	int twice_count = 0;
+     
+    	
+    	for (int i = 0; i < size; i++)
+    	{
+    		twice_count += m[sum - arr[i]];
+     
+    		
+    		if (sum - arr[i] == arr[i])
+    			twice_count--;
+    	}
+    	cout << twice_count / 2;
+     
+    	return 0;
+    }
+
